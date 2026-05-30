@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Pixel Games</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#87CEEB;
+    overflow-x:hidden;
+    font-family:'Press Start 2P', cursive;
+    color:#222;
+}
+
+/* awan */
+
+.cloud{
+    position:absolute;
+    background:white;
+    width:120px;
+    height:40px;
+    border-radius:50px;
+    opacity:0.8;
+    animation:moveCloud 30s linear infinite;
+}
+
+.cloud::before,
+.cloud::after{
+    content:'';
+    position:absolute;
+    background:white;
+    border-radius:50%;
+}
+
+.cloud::before{
+    width:50px;
+    height:50px;
+    top:-20px;
+    left:15px;
+}
+
+.cloud::after{
+    width:60px;
+    height:60px;
+    top:-25px;
+    right:15px;
+}
+
+.cloud1{
+    top:80px;
+    left:-200px;
+}
+
+.cloud2{
+    top:180px;
+    left:-300px;
+    animation-delay:10s;
+}
+
+@keyframes moveCloud{
+
+    0%{
+        transform:translateX(0);
+    }
+
+    100%{
+        transform:translateX(1600px);
+    }
+
+}
+
+/* navbar */
+
+header{
+    min-height:100vh;
+    position:relative;
+    overflow:hidden;
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:30px 8%;
+}
+
+.logo{
+    font-size:18px;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:20px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#222;
+    font-size:10px;
+}
+
+/* hero */
+
+.hero{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    min-height:80vh;
+    padding:20px;
+}
+
+.hero h1{
+    font-size:38px;
+    line-height:1.6;
+    margin-bottom:25px;
+    color:white;
+    text-shadow:4px 4px #000;
+}
+
+.hero p{
+    font-size:10px;
+    line-height:2;
+    max-width:700px;
+    margin-bottom:35px;
+}
+
+.btn{
+    display:inline-block;
+    padding:18px 30px;
+    background:#FFD93D;
+    color:#222;
+    text-decoration:none;
+    border:4px solid #000;
+    box-shadow:6px 6px #000;
+    transition:0.2s;
+    font-size:10px;
+}
+
+.btn:hover{
+    transform:translate(4px,4px);
+    box-shadow:2px 2px #000;
+}
+
+/* games */
+
+.games{
+    background:#f5f5f5;
+    padding:80px 8%;
+    border-top:6px solid #000;
+}
+
+.title{
+    text-align:center;
+    margin-bottom:50px;
+    font-size:20px;
+}
+
+.game-list{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:white;
+    border:5px solid #000;
+    overflow:hidden;
+    box-shadow:8px 8px #000;
+    transition:0.2s;
+    position:relative;
+}
+
+.card:hover{
+    transform:translateY(-10px) rotate(-1deg);
+}
+
+.card img{
+    width:100%;
+    height:190px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:20px;
+}
+
+.card-content h2{
+    font-size:12px;
+    margin-bottom:15px;
+}
+
+.card-content p{
+    font-size:9px;
+    line-height:2;
+    margin-bottom:20px;
+}
+
+/* download */
+
+.download{
+    width:100%;
+    padding:14px;
+    background:#4CAF50;
+    color:white;
+    font-family:'Press Start 2P', cursive;
+    font-size:9px;
+    cursor:pointer;
+    border-top:4px solid #000;
+    transition:0.2s;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-decoration:none;
+}
+
+.download:hover{
+    background:#45a049;
+}
+
+/* popup */
+
+.popup{
+    position:fixed;
+    top:-100px;
+    left:50%;
+    transform:translateX(-50%);
+    background:#FFD93D;
+    border:4px solid #000;
+    padding:15px 20px;
+    font-size:10px;
+    box-shadow:6px 6px #000;
+    transition:0.4s;
+    z-index:1000;
+}
+
+.popup.show{
+    top:20px;
+}
+
+/* footer */
+
+footer{
+    background:#222;
+    color:white;
+    text-align:center;
+    padding:25px;
+    font-size:9px;
+}
+
+/* mobile */
+
+@media(max-width:768px){
+
+    nav{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    .hero h1{
+        font-size:24px;
+    }
+
+}
+
+</style>
+</head>
+<body>
+
+<div class="cloud cloud1"></div>
+<div class="cloud cloud2"></div>
+
+<div class="popup" id="popup">
+    GAME DOWNLOADED!
+</div>
+
+<header>
+
+<nav>
+
+    <div class="logo">
+        REYDEV GAMES
+    </div>
+
+    <ul>
+        <li><a href="#">HOME</a></li>
+        <li><a href="#games">GAMES</a></li>
+        <li><a href="#">ABOUT</a></li>
+    </ul>
+
+</nav>
+
+<div class="hero">
+
+    <h1>
+        PLAY FUN <br>
+        REYDEV GAMES
+    </h1>
+
+    <p>
+        Website sederhana untuk download game2 seru dari admin.
+    </p>
+
+    <a href="#games" class="btn">
+        VIEW
+    </a>
+
+</div>
+
+</header>
+
+<section class="games" id="games">
+
+    <h1 class="title">
+        MY GAMES
+    </h1>
+
+    <div class="game-list">
+
+        <!-- GAME 1 -->
+
+        <div class="card">
+
+            <img src="GameCloud icon.png">
+
+            <div class="card-content">
+
+                <h2>GameCloud</h2>
+
+                <p>
+                    Mainkan game2 dari website yang di kumpulkan menjadi 1.
+                </p>
+
+            </div>
+
+            <a href="games/adventure.zip"
+               download
+               class="download"
+               onclick="downloadGame()">
+               DOWNLOAD
+            </a>
+
+        </div>
+
+        <!-- GAME 2 -->
+
+        <div class="card">
+
+            <img src="https://images.unsplash.com/photo-1542751110-97427bbecf20?q=80&w=1200&auto=format&fit=crop">
+
+            <div class="card-content">
+
+                <h2>RACING</h2>
+
+                <p>
+                    Balapan retro dengan gameplay cepat dan ringan.
+                </p>
+
+            </div>
+
+            <a href="games/racing.zip"
+               download
+               class="download"
+               onclick="downloadGame()">
+               DOWNLOAD
+            </a>
+
+        </div>
+
+        <!-- GAME 3 -->
+
+        <div class="card">
+
+            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1200&auto=format&fit=crop">
+
+            <div class="card-content">
+
+                <h2>ARCADE</h2>
+
+                <p>
+                    Game arcade sederhana yang bikin nostalgia.
+                </p>
+
+            </div>
+
+            <a href="games/arcade.zip"
+               download
+               class="download"
+               onclick="downloadGame()">
+               DOWNLOAD
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+    © 2026 REYDEV GAMES
+</footer>
+
+<script>
+
+function downloadGame(){
+
+    const popup = document.getElementById("popup");
+
+    popup.classList.add("show");
+
+    setTimeout(() => {
+        popup.classList.remove("show");
+    },2000);
+
+}
+
+</script>
+
+</body>
+</html>
