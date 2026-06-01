@@ -1,145 +1,136 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Pixel Games</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REY_DEV WEBSITE</title>
+    <!-- Font Pixel Art -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<div class="cloud cloud1"></div>
-<div class="cloud cloud2"></div>
+    <!-- Awan Dekorasi -->
+    <div class="cloud cloud1"></div>
+    <div class="cloud cloud2"></div>
 
-<div class="popup" id="popup">
-    GAME DOWNLOADED!
-</div>
-
-<header>
-
-<nav>
-
-    <div class="logo">
-        REYDEV GAMES
+    <!-- Popup Berhasil Download -->
+    <div class="popup" id="popup">
+        GAME DOWNLOADED!
     </div>
 
-    <ul>
-        <li><a href="#">HOME</a></li>
-        <li><a href="#games">GAMES</a></li>
-        <li><a href="#">ABOUT</a></li>
-    </ul>
+    <!-- HEADER & HERO -->
+    <header id="home">
+        <nav>
+            <div class="logo">
+                REY_DEV GAMES
+            </div>
+            <ul>
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#games" class="active">GAMES</a></li>
+                <li><a href="#about">ABOUT</a></li>
+            </ul>
+        </nav>
 
-</nav>
+        <div class="hero">
+            <h1>
+                WEBSITE <br>
+                REY_DEV GAMES
+            </h1>
+            <p>
+                Website sederhana untuk download game-game seru dari admin.
+            </p>
+            <a href="#games" class="btn">
+                VIEW
+            </a>
+        </div>
+    </header>
 
-<div class="hero">
+    <!-- SECTION DAFTAR GAME -->
+    <section class="games" id="games">
+        <h1 class="title">MY GAMES</h1>
 
-    <h1>
-        PLAY FUN <br>
-        REYDEV GAMES
-    </h1>
+        <div class="game-list">
 
-    <p>
-        Website sederhana untuk download game2 seru dari admin.
-    </p>
-
-    <a href="#games" class="btn">
-        VIEW
-    </a>
-
-</div>
-
-</header>
-
-<section class="games" id="games">
-
-    <h1 class="title">
-        MY GAMES
-    </h1>
-
-    <div class="game-list">
-
-        <div class="card">
-
-            <img src="GameCloud icon.png" alt="GameCloud">
-
-            <div class="card-content">
-
-                <h2>GameCloud</h2>
-
-                <p>
-                    Mainkan game2 dari website yang di kumpulkan menjadi 1.
-                </p>
-
+            <!-- Card 1: GameCloud -->
+            <div class="card">
+                <div class="card-tag tag-blue">COLLECTION</div>
+                <img src="GameCloud icon.png" alt="GameCloud">
+                <div class="card-content">
+                    <h2>GameCloud</h2>
+                    <p>
+                        Mainkan game-game seru dari website yang dikumpulkan menjadi satu tempat.
+                    </p>
+                </div>
+                <a href="GameCloud.zip" download class="download" onclick="downloadGame(event)">
+                    DOWNLOAD
+                </a>
             </div>
 
-            <a href="games/adventure.zip"
-               download
-               class="download"
-               onclick="downloadGame()">
-               DOWNLOAD
-            </a>
-
-        </div>
-
-        <div class="card">
-
-            <img src="https://images.unsplash.com/photo-1542751110-97427bbecf20?q=80&w=1200&auto=format&fit=crop" alt="Racing">
-
-            <div class="card-content">
-
-                <h2>RACING</h2>
-
-                <p>
-                    Balapan retro dengan gameplay cepat dan ringan.
-                </p>
-
+            <!-- Card 2: Racing -->
+            <div class="card">
+                <div class="card-tag tag-pink">SPEED</div>
+                <img src="racing-icon.png" alt="Racing">
+                <div class="card-content">
+                    <h2>RACING</h2>
+                    <p>
+                        Balapan retro dengan gameplay cepat, mekanik simpel, dan sangat ringan.
+                    </p>
+                </div>
+                <a href="RACING.ZIP" download class="download" onclick="downloadGame(event)">
+                    DOWNLOAD
+                </a>
             </div>
 
-            <a href="games/racing.zip"
-               download
-               class="download"
-               onclick="downloadGame()">
-               DOWNLOAD
-            </a>
-
-        </div>
-
-        <div class="card">
-
-            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1200&auto=format&fit=crop" alt="Arcade">
-
-            <div class="card-content">
-
-                <h2>ARCADE</h2>
-
-                <p>
-                    Game arcade sederhana yang bikin nostalgia.
-                </p>
-
+            <!-- Card 3: Arcade -->
+            <div class="card">
+                <div class="card-tag tag-yellow">CLASSIC</div>
+                <img src="arcade-icon.png" alt="Arcade">
+                <div class="card-content">
+                    <h2>ARCADE</h2>
+                    <p>
+                        Uji ketangkasanmu dan cetak rekor tertinggi di game arcade klasik ini!
+                    </p>
+                </div>
+                <a href="ARCADE.ZIP" download class="download" onclick="downloadGame(event)">
+                    DOWNLOAD
+                </a>
             </div>
 
-            <a href="games/arcade.zip"
-               download
-               class="download"
-               onclick="downloadGame()">
-               DOWNLOAD
-            </a>
-
         </div>
+    </section>
 
-    </div>
+    <!-- SECTION ABOUT ME (FITUR BARU) -->
+    <section class="about" id="about">
+        <h1 class="title">ABOUT DEVELOPER</h1>
+        
+        <div class="about-container">
+            <div class="avatar-wrapper">
+                <!-- Ganti 'foto-admin.png' dengan file foto/avatar pixel kamu -->
+                <img src="images.jpg" alt="ReyDev Avatar" class="about-avatar">
+            </div>
+            
+            <div class="about-text">
+                <h2> REY_DEV</h2>
+                <p>
+                    Halo! Saya adalah seorang pengembang game indie yang suka membuat game2 seru. Website ini dibuat sebagai wadah untuk membagikan karya-karya eksperimental saya kepada kalian semua.
+                </p>
+                
+                <div class="social-media">
+                    <!-- Ganti tanda # dengan link sosmed kamu sendiri -->
+                    <a href="#" target="_blank" class="socmed-btn instagram">INSTAGRAM</a>
+                    <a href="#" target="_blank" class="socmed-btn youtube">YOUTUBE</a>
+                    <a href="#" target="_blank" class="socmed-btn github">GITHUB</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-</section>
+    <!-- FOOTER -->
+    <footer>
+        &copy; 2026 REY_DEV GAMES. 
+    </footer>
 
-<footer>
-    © 2026 REYDEV GAMES
-</footer>
-
-<script src="script.js"></script>
-
+    <script src="script.js"></script>
 </body>
 </html>
